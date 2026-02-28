@@ -1,3 +1,4 @@
+import os
 import requests
 import xml.etree.ElementTree as ET
 import gspread
@@ -8,7 +9,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 # ==========================
 
 SHEET_ID = "1ulL_H1YBezBijlUw8LPCe-2Bl9ay3imao_RPKfeQDMA"
-XML_URL = "https://raw.githubusercontent.com/vitbadeychyk/xml-processor/refs/heads/main/products.xml"
+XML_URL = os.environ.get("XML_URL")
+if not XML_URL:
+    raise ValueError("Не знайдено секрет XML_URL")
 
 
 # ==========================
