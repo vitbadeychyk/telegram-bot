@@ -1,10 +1,13 @@
+import os
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile
 from aiogram.filters import CommandStart
 
 # 🧩 Встав сюди свій новий токен
-TOKEN = "8766276903:AAH5ZWsByHxCJZ9Jgy9g9zIpundFQyKpDsM"
+TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("Не знайдено TELEGRAM_BOT_TOKEN")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
