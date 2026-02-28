@@ -26,7 +26,7 @@ jobs:
 
       - name: Save Google Service Account
         run: |
-          echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT }}" > service_account.json
+              echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT }}' | tr -d '\r' > service_account.json
 
       - name: Run update_stock
         env:
